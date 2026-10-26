@@ -361,34 +361,22 @@ function importarDados(){
 
             agencias.push({
 
-                agencia:
-                    String(
-                        linha["AGENCIA"] || ""
-                    ).trim(),
+    agencia: String(linha["AGENCIA"] || "").trim(),
 
-                mcu:
-                    String(
-                        linha["MCU"] || ""
-                    ).trim(),
+    mcu: String(linha["MCU"] || "").trim(),
 
-                sto:
-                    String(
-                        linha["STO"] || ""
-                    ).trim(),
+    sto: String(linha["STO"] || "").trim(),
 
-                reate:
-                    String(
-                        linha["REATE"] || ""
-                    ).trim(),
+    reate: String(linha["REATE"] || "").trim(),
 
-                cat:
-                    String(
-                        linha["CAT"] || ""
-                    ).trim(),
+    cat: String(linha["CAT"] || "").trim(),
 
-		cve: String( linha["CVE"] || "").trim()
+    cve: String(linha["CVE"] || "").trim(),
 
-            });
+    gerenteReate: String(
+        linha["GERENTE REATE"] || "").trim()
+
+});
 
         });
 
