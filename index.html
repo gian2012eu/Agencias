@@ -355,8 +355,8 @@ function importarDados(){
 
         const linhas =
             XLSX.utils.sheet_to_json(sheet);
-			console.log(linhas[0]);
-			alert(Object.keys(linhas[0]).join("\n"));
+
+			alert(JSON.stringify(linhas[0], null, 2));
 
         agencias = [];
 
