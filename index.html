@@ -301,12 +301,12 @@ onclick="navigator.clipboard.writeText(formatarCodigo('${item.sto || item.STO ||
 Copiar
 </button>
 <br><br>
-    REATE: ${(item.reate || "").replace("REATE","")} -
-	Gerente REATE: ${item.gerenteReate || ""}<br>
+   REATE: ${(item.reate || "").replace("REATE","")} |
+Gerente REATE: ${item.gerenteReate || ""}<br>
 
-	CAT: ${item.cat || ""}<br>
+CAT: ${item.cat || ""}<br>
 
-	CVE: ${item.cve || ""}<br>
+CVE: ${item.cve || ""}<br>
         
     </div>
     `;
@@ -350,11 +350,14 @@ function importarDados(){
         );
 
 // Força usar a aba CAV
-const nomePlanilha = "Plan1";
+// Planilha CAV
+const nomePlanilha = workbook.SheetNames[1];
 
-const sheet = workbook.Sheets[nomePlanilha];
+const sheet =
+    workbook.Sheets[nomePlanilha];
 
-const linhas = XLSX.utils.sheet_to_json(sheet);
+const linhas =
+    XLSX.utils.sheet_to_json(sheet);
 		alert(Object.keys(linhas[0]).join("\n"));
 
 agencias = [];
