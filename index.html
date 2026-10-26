@@ -360,9 +360,10 @@ function importarDados(){
         agencias = [];
 
         linhas.forEach(linha => {
-			
+			console.log(linha);
+			console.log(Object.keys(linha));
 			//console.log("IMPORTADO:", linha);
-			alert(JSON.stringify(linha, null, 2));
+			//alert(JSON.stringify(linha, null, 2));
 			alert(
 "REATE = " + linha["REATE"] +
 "\n\nREATE_1 = " + linha["REATE_1"]
