@@ -349,18 +349,13 @@ function importarDados(){
             { type: "array" }
         );
 
-      // Mostra as abas
-alert(workbook.SheetNames.join("\n"));
-
 // Força usar a aba CAV
 const nomePlanilha = "Plan1";
 
 const sheet = workbook.Sheets[nomePlanilha];
 
 const linhas = XLSX.utils.sheet_to_json(sheet);
-
-// Mostra a primeira linha completa
-alert(JSON.stringify(linhas[0], null, 2));
+		alert(Object.keys(linhas[0]).join("\n"));
 
 agencias = [];
 
