@@ -301,12 +301,9 @@ onclick="navigator.clipboard.writeText(formatarCodigo('${item.sto || item.STO ||
 Copiar
 </button>
 <br><br>
-   REATE: ${(item.reate || "").replace("REATE","")} |
-Gerente REATE: ${item.gerenteReate || ""}<br>
-
-CAT: ${item.cat || ""}<br>
-
-CVE: ${item.cve || ""}<br>
+        REATE: ${(item.reate || item.REATE || "").replace("REATE","")}<br>
+	CAT: ${item.cat || item.CAT || ""}<br>
+	CVE: ${item.cve || item.CVE || ""}<br>
         
     </div>
     `;
@@ -349,40 +346,51 @@ function importarDados(){
             { type: "array" }
         );
 
-// Força usar a aba CAV
-// Planilha CAV
-const nomePlanilha = workbook.SheetNames[1];
+        // Planilha CAV
+        const nomePlanilha = workbook.SheetNames[1];
 
-const sheet =
-    workbook.Sheets[nomePlanilha];
+        const sheet =
+            workbook.Sheets[nomePlanilha];
 
-const linhas =
-    XLSX.utils.sheet_to_json(sheet);
-		alert(Object.keys(linhas[0]).join("\n"));
+        const linhas =
+            XLSX.utils.sheet_to_json(sheet);
 
-agencias = [];
+        agencias = [];
 
-linhas.forEach(linha => {
+        linhas.forEach(linha => {
 
-    agencias.push({
+            agencias.push({
 
-        agencia: String(linha["AGENCIA"] || "").trim(),
+                agencia:
+                    String(
+                        linha["AGENCIA"] || ""
+                    ).trim(),
 
-        mcu: String(linha["MCU"] || "").trim(),
+                mcu:
+                    String(
+                        linha["MCU"] || ""
+                    ).trim(),
 
-        sto: String(linha["STO"] || "").trim(),
+                sto:
+                    String(
+                        linha["STO"] || ""
+                    ).trim(),
 
-        reate: String(linha["REATE"] || "").trim(),
-		
-		cat: String(linha["CAT"] || "").trim(),
-		
-		cve:String(linha["CVE"] || "").trim(),
-		
-		gerenteReate: String(linha["GERENTE REATE"] || "").trim()
+                reate:
+                    String(
+                        linha["REATE"] || ""
+                    ).trim(),
 
-    });
+                cat:
+                    String(
+                        linha["CAT"] || ""
+                    ).trim(),
 
-});
+		cve: String( linha["CVE"] || "").trim()
+
+            });
+
+        });
 
         salvarLocal();
 
