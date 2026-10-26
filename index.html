@@ -301,9 +301,12 @@ onclick="navigator.clipboard.writeText(formatarCodigo('${item.sto || item.STO ||
 Copiar
 </button>
 <br><br>
-        REATE: ${(item.reate || item.REATE || "").replace("REATE","")}<br>
-	CAT: ${item.cat || item.CAT || ""}<br>
-	CVE: ${item.cve || item.CVE || ""}<br>
+    REATE: ${(item.reate || "").replace("REATE","")} -
+	Gerente REATE: ${item.gerenteReate || ""}<br>
+
+	CAT: ${item.cat || ""}<br>
+
+	CVE: ${item.cve || ""}<br>
         
     </div>
     `;
@@ -372,10 +375,12 @@ linhas.forEach(linha => {
         sto: String(linha["STO"] || "").trim(),
 
         reate: String(linha["REATE"] || "").trim(),
-
-        cat: String(linha["CAT"] || "").trim(),
-
-        cve: String(linha["CVE"] || "").trim()
+		
+		cat: String(linha["CAT"] || "").trim(),
+		
+		cve:String(linha["CVE"] || "").trim(),
+		
+		gerenteReate: String(linha["GERENTE REATE"] || "").trim()
 
     });
 
