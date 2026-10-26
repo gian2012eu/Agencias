@@ -359,6 +359,10 @@ function importarDados(){
 
         linhas.forEach(linha => {
 
+			  alert(
+    "REATE = " + linha["REATE"] +
+    "\n\nGERENTE REATE = " + linha["GERENTE REATE"]
+    );
             agencias.push({
 
     agencia: String(linha["AGENCIA"] || "").trim(),
